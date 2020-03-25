@@ -14,22 +14,20 @@ char *setTopic(char *topicList[], int s) {
 }
 
 //get user input for choices 
-int getChoices(char *topicL[], char *topicName) {
-  //char *choice = (char *) malloc(sizeof(char) * 3);
-  char choice[100];
+void getChoices(char *topicL[], char *topicName) {
+  size_t malloc_size = 100; 
   printf("Enter a %s that you would love. \n", topicName);
-  scanf("%s", choice);
-  topicL[0]= choice;
+  topicL[0] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
+  scanf("%99s", topicL[0]);
   printf("Enter a %s that you would love. \n", topicName);
-  scanf("%s", choice);
-  topicL[1]= choice;
+  topicL[1] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
+  scanf("%99s", topicL[1]);
   printf("Enter a %s that you would hate. \n", topicName);
-  scanf("%s", choice);
-  topicL[2]= choice;
-  printf("Enter a %s that you would hate. \n", topicName);
-  scanf("%s", choice);
-  topicL[3]= choice;  
-  return 0; 
+  topicL[2] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
+  scanf("%99s", topicL[2]);
+  printf("Enter a %s that you would hate. \n", topicName); 
+  topicL[3] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
+  scanf("%99s", topicL[3]);
 }
 //MASH
 void mash(char *two, char *three, char *four, char *topicOne[],char *topicTwo[],char *topicThree[],char *topicFour[]){
@@ -146,23 +144,10 @@ getChoices(topicTwo,two);
 getChoices(topicThree,three);
 getChoices(topicFour, four);
 
-int loop;
-
-   for(loop = 0; loop < 4; loop++)
-      printf("%s ", topicTwo[loop]);
-for(loop = 0; loop < 4; loop++)
-      printf("%s ", topicThree[loop]);
-for(loop = 0; loop < 4; loop++)
-      printf("%s ", topicFour[loop]);
-
-
-
-
-      
 //Mash
 printf("Time to MASH!\n");
 
 mash(two, three, four, topicOne, topicTwo, topicThree, topicFour);
-
+return 0;
 
 }
