@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h> 
+#include <time.h>
 
 //set topics
 char *setTopic(char *topicList[], int s) {
-  int num = (rand() % (s)); 
+  int num = rand() % s;
   char *topic = topicList[num];
   for( int i=num; i< (s-1); i++){
     topicList[i] = topicList[i + 1];
@@ -13,9 +13,9 @@ char *setTopic(char *topicList[], int s) {
   return topic;
 }
 
-//get user input for choices 
+//get user input for choices
 void getChoices(char *topicL[], char *topicName) {
-  size_t malloc_size = 100; 
+  size_t malloc_size = 100;
   printf("Enter a %s that you would love. \n", topicName);
   topicL[0] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[0]);
@@ -25,7 +25,7 @@ void getChoices(char *topicL[], char *topicName) {
   printf("Enter a %s that you would hate. \n", topicName);
   topicL[2] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[2]);
-  printf("Enter a %s that you would hate. \n", topicName); 
+  printf("Enter a %s that you would hate. \n", topicName);
   topicL[3] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[3]);
 }
@@ -42,9 +42,9 @@ int items3 = 4;
 int items4 = 4;
 
 while((items1 != 2) || (items2 != 2) || (items3 != 2) || (items4 != 2)){
-  interval= 3; 
+  interval= 3;
   while(interval > 0){
-    if(((interval - items1) > 0)){ 
+    if(((interval - items1) > 0)){
     interval = interval - items1;
     }
     else if (items1==2){
@@ -59,7 +59,7 @@ while((items1 != 2) || (items2 != 2) || (items3 != 2) || (items4 != 2)){
           interval = 0;
     }
 
-    if(((interval - items2) > 0)){ 
+    if(((interval - items2) > 0)){
     interval = interval - items2;
     }
     else if (items2==2){
@@ -75,7 +75,7 @@ while((items1 != 2) || (items2 != 2) || (items3 != 2) || (items4 != 2)){
           interval = 0;
     }}
 
-    if(((interval - items3) > 0)){ 
+    if(((interval - items3) > 0)){
     interval = interval - items3;
     }
     else if (items3==2){
@@ -91,7 +91,7 @@ while((items1 != 2) || (items2 != 2) || (items3 != 2) || (items4 != 2)){
           interval = 0;
     }}
 
-    if(((interval - items4) > 0)){ 
+    if(((interval - items4) > 0)){
     interval = interval - items4;
     }
     else if (items4==2){
@@ -120,7 +120,9 @@ while((items1 != 2) || (items2 != 2) || (items3 != 2) || (items4 != 2)){
 //main function
 int main(void) {
 
-// initialize 
+srand(time(NULL));  
+
+// initialize
 char *topicList [10] = {"car","number of kids", "future location", "job", "spouse's name", "number of friends", "pet", "amount of money", "honeymoon destination"};
 char *topicOne [5] = {"mansion","apartment","shack","house"};
 int size = 10;
@@ -139,7 +141,7 @@ char *four = setTopic(topicList, size);
 size--;
 
 
-//get user input 
+//get user input
 getChoices(topicTwo,two);
 getChoices(topicThree,three);
 getChoices(topicFour, four);
