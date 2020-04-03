@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h> 
-  
+#include <time.h>
+
 //mash picture that sets number of interval
 int interval(){
 int randomnumber= rand() % 20;
   while (randomnumber <= 1){
     randomnumber= rand() % 20;
   }
-  printf("Interval: %d\n", randomnumber);
+  printf("MASH Interval: %d\n\n", randomnumber);
 
   int limit = randomnumber;
 
@@ -38,14 +38,14 @@ char *setTopic(char *topicList[], int s) {
   //takes out topic chosen from the topic list
   for ( int i=num; i< (s-1); i++){
     topicList[i] = topicList[i + 1];
-  } 
+  }
   //returns the topic chosen
   return topic;
 }
 
-//get user input for choices 
+//get user input for choices
 void getChoices(char *topicL[], char *topicName) {
-  size_t malloc_size = 100; 
+  size_t malloc_size = 100;
   printf("Enter a %s that you would love. \n", topicName);
   topicL[0] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[0]);
@@ -55,7 +55,7 @@ void getChoices(char *topicL[], char *topicName) {
   printf("Enter a %s that you would hate. \n", topicName);
   topicL[2] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[2]);
-  printf("Enter a %s that you would hate. \n", topicName); 
+  printf("Enter a %s that you would hate. \n", topicName);
   topicL[3] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[3]);
 }
@@ -71,13 +71,13 @@ int items3 = 4;
 int items4 = 4;
 //loop will continue until there is only one user choice left in each topic array
 while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
-  interval= intervalMax; 
+  interval= intervalMax;
   while(interval > -1){
 //topicOne traversal
   //only go through array if it has more than one item left
   if(items1>1){
     //don't delete anything from array if the interval is greater than the number of answers left in array and delete array size from the interval and move onto next topic
-    if(((interval - items1) > 0) && (items1 > 1)){ 
+    if(((interval - items1) > 0) && (items1 > 1)){
     interval = interval - items1;
     }
     else{
@@ -93,8 +93,8 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
           else{
             interval= intervalMax;
           }
-            items1--;  
-            //if the interval is equal to how many items are left to traverse in the array, delete the last answer in array   
+            items1--;
+            //if the interval is equal to how many items are left to traverse in the array, delete the last answer in array
             if(interval==0 && items1 >1){
               for( int i= items1-1; i< (items1); i++){
                 topicOne[i] = topicOne[i + 1];
@@ -113,8 +113,8 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
               else{
                 interval=intervalMax;
               }
-                items1--; 
-            }     
+                items1--;
+            }
         }
           else{
             for( int i= items1-1; i< (items1); i++){
@@ -127,8 +127,8 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
 //topicTwo traversal
   //only go through array if it has more than one item left
   if(items2>1){
-    //don't delete anything from array if the interval is greater than the number of answers left in array and delete array size from the interval and move onto next topic    
-    if(((interval - items2) > 0) && (items2 > 1)){ 
+    //don't delete anything from array if the interval is greater than the number of answers left in array and delete array size from the interval and move onto next topic
+    if(((interval - items2) > 0) && (items2 > 1)){
       interval = interval - items2;
     }
     else{
@@ -164,8 +164,8 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
             else{
               interval= intervalMax;
             }
-              items2--; 
-          } 
+              items2--;
+          }
         }
         else{
           for( int i= items2-1; i< (items2); i++){
@@ -178,8 +178,8 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
 //topicThree traversal
   //only go through array if it has more than one item left
   if(items3>1){
-    //don't delete anything from array if the interval is greater than the number of answers left in array and delete array size from the interval and move onto next topic    
-    if(((interval - items3) > 0) && (items3 > 1)){ 
+    //don't delete anything from array if the interval is greater than the number of answers left in array and delete array size from the interval and move onto next topic
+    if(((interval - items3) > 0) && (items3 > 1)){
       interval = interval - items3;
     }
     else{
@@ -210,7 +210,7 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
               topicThree[i] = topicThree[i + 1];
             }
             interval= intervalMax-(abs(abs(interval) - items3));
-            items3--; 
+            items3--;
           }}
           else{
             for( int i= items3-1; i< (items3); i++){
@@ -222,8 +222,8 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
 //topicFour traversal
   //only go through array if it has more than one item left
   if(items4>1){
-    //don't delete anything from array if the interval is greater than the number of answers left in array and delete array size from the interval and move onto next topic    
-    if(((interval - items4) > 0) && (items4 > 1)){ 
+    //don't delete anything from array if the interval is greater than the number of answers left in array and delete array size from the interval and move onto next topic
+    if(((interval - items4) > 0) && (items4 > 1)){
       interval = interval - items4;
     }
     else{
@@ -259,7 +259,7 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
             else{
               interval= intervalMax;
             }
-              items4--; 
+              items4--;
               }}
             else{
               for( int i= items4-1; i< (items4); i++){
@@ -272,16 +272,17 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
   interval = -1;
   }}}
 //print final predictions
-  printf("You will live in a %s.\n", topicOne[0]);
-  printf("Your %s will be %s.\n", two, topicTwo[0]);
-  printf("Your %s will be %s.\n", three, topicThree[0]);
-  printf("Your %s will be %s.\n", four, topicFour[0]);
+  printf("\nWe have determined your future. See the results below!\n");
+  printf("\n* You will live in a %s.\n", topicOne[0]);
+  printf("\n* Your %s will be %s.\n", two, topicTwo[0]);
+  printf("\n* Your %s will be %s.\n", three, topicThree[0]);
+  printf("\n* Your %s will be %s.\n", four, topicFour[0]);
 }
 
 //main function
 int main(void) {
 //sets random number generator
-srand(time(NULL));   
+srand(time(NULL));
 // initialize the topic list, MASH topic, and size of the topic list
 char *topicList [10] = {"car","number of kids", "future location", "job", "spouse's name", "number of friends", "pet", "amount of money", "honeymoon destination"};
 char *topicOne [5] = {"mansion","apartment","shack","house"};
@@ -300,13 +301,13 @@ size--;
 char *four = setTopic(topicList, size);
 size--;
 
-//get user input 
+//get user input
 getChoices(topicTwo,two);
 getChoices(topicThree,three);
 getChoices(topicFour, four);
 
 //Mash: makes predictions based on interval and user's answers
-printf("Time to MASH!\n");
+printf("\nTime to MASH!\n");
 mash(two, three, four, topicOne, topicTwo, topicThree, topicFour);
 return 0;
 }
