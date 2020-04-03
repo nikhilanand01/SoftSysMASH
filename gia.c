@@ -1,23 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h> 
-  
+#include <time.h>
+
 
 //set topics
 char *setTopic(char *topicList[], int s) {
 int num = rand() % (s-1);
-  //int num = (srand() % (s)); 
+  //int num = (srand() % (s));
   char *topic = topicList[num];
   for ( int i=num; i< (s-1); i++){
     topicList[i] = topicList[i + 1];
-  } 
+  }
   return topic;
 }
 
-//get user input for choices 
+//get user input for choices
 void getChoices(char *topicL[], char *topicName) {
-  size_t malloc_size = 100; 
+  size_t malloc_size = 100;
   printf("Enter a %s that you would love. \n", topicName);
   topicL[0] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[0]);
@@ -27,7 +27,7 @@ void getChoices(char *topicL[], char *topicName) {
   printf("Enter a %s that you would hate. \n", topicName);
   topicL[2] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[2]);
-  printf("Enter a %s that you would hate. \n", topicName); 
+  printf("Enter a %s that you would hate. \n", topicName);
   topicL[3] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
   scanf("%99s", topicL[3]);
 }
@@ -37,17 +37,17 @@ void mash(char *two, char *three, char *four, char *topicOne[],char *topicTwo[],
 //var interval = spiral();
 //var intervalMax = interval;
 //set numbers for interval and list amounts
-int interval = 7;
+int interval = 5;
 int items1 = 4;
 int items2 = 4;
 int items3 = 4;
 int items4 = 4;
 
 while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
- interval= 7; 
+ interval= 5;
   while(interval > 0){
 
-    if(((interval - items1) > 0) && (items1 > 1)){ 
+    if(((interval - items1) > 0) && (items1 > 1)){
     interval = interval - items1;
     }
     else{
@@ -67,7 +67,7 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
           interval = 0;
     }}
 
-    if(((interval - items2) > 0) && (items2 > 1)){ 
+    if(((interval - items2) > 0) && (items2 > 1)){
     interval = interval - items2;
     }
     else{
@@ -87,7 +87,7 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
           interval = 0;
     }}
 
-    if(((interval - items3) > 0) && (items3 > 1)){ 
+    if(((interval - items3) > 0) && (items3 > 1)){
     interval = interval - items3;
     }
     else{
@@ -107,7 +107,7 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
           interval = 0;
     }}
 
-    if(((interval - items4) > 0) && (items4 > 1)){ 
+    if(((interval - items4) > 0) && (items4 > 1)){
     interval = interval - items4;
     }
     else{
@@ -126,7 +126,7 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
           items4--;}
           interval = 0;
     }}
-    
+
   if((items1 == 1) && (items2 == 1) && (items3 == 1) && (items4 == 1)){
   interval = 0;
   }
@@ -138,10 +138,11 @@ while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
   printf("Your %s will be %s.\n", four, topicFour[0]);
 }
 
+
 //main function
 int main(void) {
-srand(time(NULL));   
-// initialize 
+srand(time(NULL));
+// initialize
 char *topicList [10] = {"car","number of kids", "future location", "job", "spouse's name", "number of friends", "pet", "amount of money", "honeymoon destination"};
 char *topicOne [5] = {"mansion","apartment","shack","house"};
 int size = 10;
@@ -160,7 +161,7 @@ char *four = setTopic(topicList, size);
 size--;
 
 
-//get user input 
+//get user input
 getChoices(topicTwo,two);
 getChoices(topicThree,three);
 getChoices(topicFour, four);
