@@ -48,16 +48,16 @@ void getChoices(char *topicL[], char *topicName) {
   size_t malloc_size = 100;
   printf("Enter a %s that you would love. \n", topicName);
   topicL[0] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
-  scanf("%99s", topicL[0]);
+  scanf("%99[^\n]%*1[\n]", topicL[0]);
   printf("Enter a %s that you would love. \n", topicName);
   topicL[1] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
-  scanf("%99s", topicL[1]);
+  scanf("%99[^\n]%*1[\n]", topicL[1]);
   printf("Enter a %s that you would hate. \n", topicName);
   topicL[2] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
-  scanf("%99s", topicL[2]);
+  scanf("%99[^\n]%*1[\n]", topicL[2]);
   printf("Enter a %s that you would hate. \n", topicName);
   topicL[3] = malloc(malloc_size * sizeof(char)); /* allocates 100 bytes */
-  scanf("%99s", topicL[3]);
+  scanf("%99[^\n]%*1[\n]", topicL[3]);
 }
 
 //MASH
