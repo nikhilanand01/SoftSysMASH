@@ -14,7 +14,32 @@
 
     We could implement a random number generator and use that value to determine the rate of input removals. We realized this would not be as satisfying and enjoyable for the end user. Furthermore, we didn't want to sell ourselves out and default to a simple basic randomization. After much discussion and thought, Nikhil came up with an idea to create a randomly generated tree. The number of rows in this tree graphic would equal the value used to cross off the user inputs for the game. Thus, our team had to work around this issue and we found a solution that was able to incorporate both graphics and functionality into one.   
 
-6. 
+6. One of the most important functions in our program is called MASH. It has all the logic of traversing through each topic and crossing off the answer in a category whenever an interval lands on it. 
+
+Another important function we made drew a triangle that the determined the interval for the game according to the number of rows randomly generated. This function made the game more interesting for the user as it added graphics to MASH. 
+//mash picture that sets number of interval
+int interval(){
+int randomnumber= rand() % 20;
+  while (randomnumber <= 1){
+    randomnumber= rand() % 20;
+  }
+  printf("Interval: %d\n", randomnumber);
+
+  int limit = randomnumber;
+
+  int count1;
+  int count2;
+  int count3 = limit - 1;
+  //draws interval triangle picture
+  for (count1=1;count1<limit*2;count1+=2){
+    for (count2=0;count2<count3;count2++)
+        printf(" ");
+    for (count2=0;count2<count1;count2++){
+        printf("*");
+    }
+    printf("\n");
+    count3--;
+  }
 
 7. Reflecting on the outcome of our project, our team did an excellent job of designing the game and adapting to the challenges that were thrown at us along the way. We ended up somewhere in the middle of our learning goal bounds. While we were not able to achieve the spiral graphic, we were able to take user input from each category and remove the inputs accordingly to come up with a final "prediction." 
 
