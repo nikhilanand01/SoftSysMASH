@@ -17,7 +17,7 @@
 
 6. One of the most important functions in our program is poetically called *mash*. It has all the logic of traversing through each topic and crossing off the answer in a category whenever an interval lands on it. This is the function used to get the results that would be outputted for the user. It crosses off based on the random number used for the triangle function below.
 
-    Our shape function *interval* created a triangle for the game according to the number of rows randomly generated. This function made the game more interesting for the user as it added graphics to MASH. A snippet of the code is below showing how the triangle is made based on the random number coming from `int randomnumber= rand() % 20;`. You can refer to the full function in the main.c file.
+    Our shape function *interval* created a triangle for the game according to the number of rows randomly generated. This function made the game more interesting for the user as it added graphics to MASH. A snippet of the code is below showing how the triangle is made based on the random number coming from `int randomnumber= rand() % 20;`. You can refer to the full function in the *main.c* file.
     ```Triangle Function
     for (count1=1;count1<limit*2;count1+=2){
       for (count2=0;count2<count3;count2++)
