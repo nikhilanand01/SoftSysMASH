@@ -3,7 +3,31 @@
 #include <string.h>
 #include <time.h> 
   
+//mash picture that sets number of interval
+int interval(){
+int randomnumber= rand() % 20;
+  while (randomnumber <= 1){
+    randomnumber= rand() % 20;
+  }
+  printf("Interval: %d\n", randomnumber);
 
+  int limit = randomnumber;
+
+  int count1;
+  int count2;
+  int count3 = limit - 1;
+
+  for (count1=1;count1<limit*2;count1+=2){
+    for (count2=0;count2<count3;count2++)
+        printf(" ");
+    for (count2=0;count2<count1;count2++){
+        printf("*");
+    }
+    printf("\n");
+    count3--;
+  }
+  return randomnumber;
+}
 //set topics
 char *setTopic(char *topicList[], int s) {
 int num = rand() % (s-1);
@@ -36,15 +60,15 @@ void mash(char *two, char *three, char *four, char *topicOne[],char *topicTwo[],
 //var interval = spiral();
 //var intervalMax = interval;
 //set numbers for interval and list amounts
-int interval = 5;
-int intervalMax = 5;
+int intervalMax = interval();
+int interval = intervalMax;
 int items1 = 4;
 int items2 = 4;
 int items3 = 4;
 int items4 = 4;
 
 while((items1 != 1) || (items2 != 1) || (items3 != 1) || (items4 != 1)){
- interval= 5; 
+ interval= intervalMax; 
   while(interval > -1){
 
 //topicOne
